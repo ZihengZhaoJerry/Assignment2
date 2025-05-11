@@ -1,0 +1,19 @@
+<%- include("templates/header") %>
+
+<h2>Users</h2>
+<ul class="list-group">
+    <% users.forEach(user => { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span><%= user.name %> (<%= user.user_type %>)</span>
+            <div>
+                <% if (user.user_type === 'admin') { %>
+                    <a href="/demote/<%= user._id %>" class="btn btn-success btn-sm">Demote to User</a>
+                <% } else { %>
+                    <a href="/promote/<%= user._id %>" class="btn btn-danger btn-sm">Promote to Admin</a>
+                <% } %>
+            </div>
+        </li>
+    <% }) %>
+</ul>
+
+<%- include("templates/footer") %>

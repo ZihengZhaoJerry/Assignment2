@@ -1,0 +1,20 @@
+<%- include("templates/header", { title: "Members Area" }) %>
+
+<div class="text-center">
+    <h1>Hello, <%= name %>!</h1>
+    <p>Welcome to the members-only area.</p>
+
+    <div class="container">
+        <div class="row">
+            <% images.forEach(image => { %>
+                <div class="col-md-4 col-sm-12 mb-4">
+                    <img src="/images/<%= image %>" alt="Image" class="img-fluid rounded shadow-sm">
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <a href="/logout" class="btn btn-danger mt-4">Log Out</a>
+</div>
+
+<%- include("templates/footer") %>
